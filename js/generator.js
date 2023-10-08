@@ -1,5 +1,6 @@
 import { teamResultContainerDiv } from "./components";
 import { teamColorClasses } from "./constants";
+import { sortPlayersAccordingToCoefficient } from "./sorter";
 
 export function generateTeams(players, teamsCount) {
   const selectedPlayers = [];
