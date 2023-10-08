@@ -57,4 +57,5 @@ If you have any questions or feedback, feel free to contact me at your@email.com
 - Give a ⭐️ if you like this project!
 - Also, your feedback is much appreciated!
 - If you found this app helpful and would like to support me, you can buy me a coffee.
-<br/><a href="https://www.buymeacoffee.com/alexjurik" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="60px" width="217px"></a>
+<br/>
+<a href="https://www.buymeacoffee.com/alexjurik"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=alexjurik&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>
