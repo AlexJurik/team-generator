@@ -130,5 +130,4 @@ dist
 .pnp.*
 
 *.xlsx
-assets
 .idea
