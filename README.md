@@ -53,3 +53,8 @@ Alexander jurik - https://bento.me/alex-jurik
 ## Contact
 If you have any questions or feedback, feel free to contact me at your@email.com.
 
+## Support
+- Give a ⭐️ if you like this project!
+- Also, your feedback is much appreciated!
+- If you found this app helpful and would like to support me, you can buy me a coffee.
+<br/><a href="https://www.buymeacoffee.com/alexjurik" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="60px" width="217px"></a>
