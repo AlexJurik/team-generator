@@ -1,18 +1,24 @@
-export function generateTeams(players) {
-  const selectedPlayers = [];
+import { playersCheckboxesContainer } from "./components";
+import { sortPlayersAccordingToAttendance } from "./sorter";
 
-  // Collect the selected players
-  for (const player of players) {
-    const checkbox = document.getElementById(player.identifier);
-    if (checkbox.checked) {
-      selectedPlayers.push(player.name);
-    }
+export function generateCheckboxes(players) {
+  const sortedPlayers = sortPlayersAccordingToAttendance(players);
+  for (const player of sortedPlayers) {
+    const checkboxContainer = document.createElement("div");
+    checkboxContainer.classList.add("form-check");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = player.identifier;
+    checkbox.classList.add("form-check-input");
+    checkboxContainer.appendChild(checkbox);
+
+    const label = document.createElement("label");
+    label.htmlFor = player.identifier;
+    label.classList.add("form-check-label");
+    label.appendChild(document.createTextNode(player.name));
+    checkboxContainer.appendChild(label);
+
+    playersCheckboxesContainer.appendChild(checkboxContainer);
   }
-
-  // Perform your team generation logic here
-  // You can create an algorithm to generate teams based on the selected players
-
-  // For demonstration, let's display the selected players as teams
-  const teamResult = document.getElementById("teamResult");
-  teamResult.innerHTML = selectedPlayers.join("<br>");
 }

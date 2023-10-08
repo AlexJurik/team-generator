@@ -1,18 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Team generator</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-<header>
-    <nav>
-        <div class="logo">Advanced team generator</div>
-    </nav>
-</header>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4976619542933106"
+     crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Advanced team generator</a>
+        </div>
+      </nav>
+    </header>
 
-<script src="index.js"></script>
-</body>
+    <section>
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-6 offset-md-3">
+            <div class="accordion" id="steps">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#excelUploadStep"
+                    aria-expanded="true"
+                    aria-controls="excelUploadStep"
+                  >
+                    #1 Upload excel file
+                  </button>
+                </h2>
+                <div id="excelUploadStep" class="accordion-collapse collapse show" data-bs-parent="#steps">
+                  <div class="accordion-body">
+                    <div class="col-6 offset-md-3">
+                      <div class="input-group mt-3 mb-3">
+                        <label class="input-group-text" for="excelFileInput">Upload</label>
+                        <input accept=".xlsx" class="form-control" id="excelFileInput" type="file" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#playersSelectStep"
+                    aria-expanded="false"
+                    aria-controls="playersSelectStep"
+                  >
+                    #2 Select team players
+                  </button>
+                </h2>
+                <div id="playersSelectStep" class="accordion-collapse collapse" data-bs-parent="#steps">
+                  <div class="accordion-body">
+                    <div id="playersCheckboxesContainer"></div>
+                    <button class="btn btn-primary mt-3" id="nextStepBtn" type="button">Next</button>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#amountOfTeamsStep"
+                    aria-expanded="false"
+                    aria-controls="amountOfTeamsStep"
+                  >
+                    #3 Enter amount of teams
+                  </button>
+                </h2>
+                <div id="amountOfTeamsStep" class="accordion-collapse collapse" data-bs-parent="#steps">
+                  <div class="accordion-body">
+                    <div class="mb-3">
+                      <label for="amountOfTeamsInput" class="form-label">Amount of teams</label>
+                      <input type="number" class="form-control" id="amountOfTeamsInput" placeholder="3" value="3">
+                      <button class="btn btn-primary mt-3" id="generateTeamsBtn" type="button">Generate Teams</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#generatedTeamsStep"
+                    aria-expanded="false"
+                    aria-controls="generatedTeamsStep"
+                  >
+                    #4 Check generated teams
+                  </button>
+                </h2>
+                <div id="generatedTeamsStep" class="accordion-collapse collapse" data-bs-parent="#steps">
+                  <div class="accordion-body">
+                    <div id="teamResultContainerDiv"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/index.js"></script>
+  </body>
 </html>
