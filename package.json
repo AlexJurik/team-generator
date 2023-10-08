@@ -1,0 +1,30 @@
+{
+  "name": "team-generator",
+  "version": "1.0.0",
+  "description": "Advanced team generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexJurik/team-generator.git"
+  },
+  "keywords": [
+    "team",
+    "sport",
+    "generator",
+    "football"
+  ],
+  "author": "Alexander Jurik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexJurik/team-generator/issues"
+  },
+  "homepage": "https://github.com/AlexJurik/team-generator#readme",
+  "dependencies": {
+    "prettier": "^3.0.3",
+    "xlsx": "^0.18.5"
+  }
+}
