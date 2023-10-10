@@ -1,6 +1,5 @@
 # Advanced Team Generator
 
-# Team Generator from Excel File
 A JavaScript application that allows you to load an Excel file containing player information, create checkboxes for each player, and generate teams based on player coefficients.
 
 ## Problem solved
