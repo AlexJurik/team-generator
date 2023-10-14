@@ -24,147 +24,152 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Advanced team generator</a>
-        </div>
-      </nav>
-    </header>
-
-    <section>
-      <div class="container mt-4">
-        <div class="row">
-          <div class="col-12">
-            <div class="accordion" id="steps">
-              <!-- UPLOAD -->
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#excelUploadStep"
-                    aria-expanded="true"
-                    aria-controls="excelUploadStep"
-                  >
-                    #1 Upload excel file
-                  </button>
-                </h2>
-                <div id="excelUploadStep" class="accordion-collapse collapse show" data-bs-parent="#steps">
-                  <div class="accordion-body">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="input-group mt-3 mb-3">
-                          <label class="input-group-text" for="excelFileInput">Upload</label>
-                          <input accept=".xlsx" class="form-control" id="excelFileInput" type="file" />
-                          <button class="btn btn-outline-danger" type="button" id="clearExcelBtn">Clear</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12">
-                        <p class="fs-4">Example</p>
-                        <iframe
-                          src="https://onedrive.live.com/embed?resid=FB9B48A050419EA7%2123918&authkey=!AHvIm76IalSMafw&em=2&wdAllowInteractivity=False&ActiveCell='Sheet1'!A1&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"
-                          style="width: 100%; height: 500px"
-                          frameborder="0"
-                          scrolling="no"
-                        ></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- PLAYERS -->
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#playersSelectStep"
-                    aria-expanded="false"
-                    aria-controls="playersSelectStep"
-                  >
-                    #2 Select team players
-                  </button>
-                </h2>
-                <div id="playersSelectStep" class="accordion-collapse collapse" data-bs-parent="#steps">
-                  <div class="accordion-body">
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th scope="col"></th>
-                          <th scope="col">#</th>
-                          <th scope="col">Name</th>
-                          <th scope="col">Category</th>
-                          <th scope="col">Goalkeeper</th>
-                        </tr>
-                      </thead>
-                      <tbody id="playersTableBody" class="table-group-divider"></tbody>
-                    </table>
-                    <button class="btn btn-primary mt-3" id="nextStepBtn" type="button">Next</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- AMOUNT -->
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#amountOfTeamsStep"
-                    aria-expanded="false"
-                    aria-controls="amountOfTeamsStep"
-                  >
-                    #3 Enter amount of teams
-                  </button>
-                </h2>
-                <div id="amountOfTeamsStep" class="accordion-collapse collapse" data-bs-parent="#steps">
-                  <div class="accordion-body">
-                    <div class="mb-3">
-                      <label for="amountOfTeamsInput" class="form-label">Amount of teams</label>
-                      <input type="number" class="form-control" id="amountOfTeamsInput" placeholder="3" value="3" />
-                      <button class="btn btn-primary mt-3" id="generateTeamsBtn" type="button">Generate Teams</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- TEAMS -->
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#generatedTeamsStep"
-                    aria-expanded="false"
-                    aria-controls="generatedTeamsStep"
-                  >
-                    #4 Check generated teams
-                  </button>
-                </h2>
-                <div id="generatedTeamsStep" class="accordion-collapse collapse" data-bs-parent="#steps">
-                  <div class="accordion-body">
-                    <div id="teamResultContainerDiv"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <a class="mt-3" href="https://www.buymeacoffee.com/alexjurik"
+  <body style="padding-top: 5rem; padding-bottom: 5rem">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Advanced team generator</a>
+        <div class="d-flex">
+          <a href="https://www.buymeacoffee.com/alexjurik"
             ><img
               src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=alexjurik&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00"
           /></a>
         </div>
       </div>
-    </section>
+    </nav>
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="accordion" id="steps">
+            <!-- UPLOAD -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#excelUploadStep"
+                  aria-expanded="true"
+                  aria-controls="excelUploadStep"
+                >
+                  #1 Upload excel file
+                </button>
+              </h2>
+              <div id="excelUploadStep" class="accordion-collapse collapse show" data-bs-parent="#steps">
+                <div class="accordion-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="input-group mt-3 mb-3">
+                        <label class="input-group-text" for="excelFileInput">Upload</label>
+                        <input accept=".xlsx" class="form-control" id="excelFileInput" type="file" />
+                        <button class="btn btn-outline-danger" type="button" id="clearExcelBtn">Clear</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="fs-4">Example</p>
+                      <iframe
+                        src="https://onedrive.live.com/embed?resid=FB9B48A050419EA7%2123918&authkey=!AHvIm76IalSMafw&em=2&wdAllowInteractivity=False&ActiveCell='Sheet1'!A1&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"
+                        style="width: 100%; height: 500px"
+                        frameborder="0"
+                        scrolling="no"
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PLAYERS -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#playersSelectStep"
+                  aria-expanded="false"
+                  aria-controls="playersSelectStep"
+                >
+                  #2 Select team players
+                </button>
+              </h2>
+              <div id="playersSelectStep" class="accordion-collapse collapse" data-bs-parent="#steps">
+                <div class="accordion-body">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Goalkeeper</th>
+                      </tr>
+                    </thead>
+                    <tbody id="playersTableBody" class="table-group-divider"></tbody>
+                  </table>
+                  <button class="btn btn-primary mt-3" id="nextStepBtn" type="button">Next</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- AMOUNT -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#amountOfTeamsStep"
+                  aria-expanded="false"
+                  aria-controls="amountOfTeamsStep"
+                >
+                  #3 Enter amount of teams
+                </button>
+              </h2>
+              <div id="amountOfTeamsStep" class="accordion-collapse collapse" data-bs-parent="#steps">
+                <div class="accordion-body">
+                  <div class="mb-3">
+                    <label for="amountOfTeamsInput" class="form-label">Amount of teams</label>
+                    <input type="number" class="form-control" id="amountOfTeamsInput" placeholder="3" value="3" />
+                    <button class="btn btn-primary mt-3" id="generateTeamsBtn" type="button">Generate Teams</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TEAMS -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#generatedTeamsStep"
+                  aria-expanded="false"
+                  aria-controls="generatedTeamsStep"
+                >
+                  #4 Check generated teams
+                </button>
+              </h2>
+              <div id="generatedTeamsStep" class="accordion-collapse collapse" data-bs-parent="#steps">
+                <div class="accordion-body">
+                  <div id="teamResultContainerDiv"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="navbar navbar-dark bg-dark fixed-bottom">
+      <div class="container-fluid">
+        <span class="navbar-text">©2023 Alexander Jurik</span>
+        <span class="navbar-text"><a href="mailto:aleks.jurik@gmail.com">Contact</a></span>
+      </div>
+    </footer>
 
     <script src="js/index.js"></script>
   </body>
