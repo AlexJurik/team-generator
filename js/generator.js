@@ -53,7 +53,7 @@ export function generateTeams(players, teamsCount) {
   }
 
   if (teamResultContainerDiv.firstChild) {
-    teamResultContainerDiv.removeChild(teamResult.firstChild);
+    teamResultContainerDiv.removeChild(teamResultContainerDiv.firstChild);
   }
 
   const listGroup = document.createElement("ul");
