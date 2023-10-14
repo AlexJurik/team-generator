@@ -38,8 +38,10 @@ export function generateTeams(players, teamsCount) {
     }
   }
 
+  lastIndex = lastIndex + 1 < teamsCount ? lastIndex + 1 : 0;
+
   while (copyOfSortedGoalkeepers.length) {
-    for (let i = lastIndex + 1; i < teamsCount; i++) {
+    for (let i = lastIndex; i < teamsCount; i++) {
       const candidate = copyOfSortedGoalkeepers.shift();
       if (!candidate) {
         break;
@@ -49,6 +51,10 @@ export function generateTeams(players, teamsCount) {
         teams[i] = [];
       }
       teams[i].push(candidate);
+
+      if (i === teamsCount - 1) {
+        lastIndex = 0;
+      }
     }
   }
 

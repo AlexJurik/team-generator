@@ -1,4 +1,5 @@
 export const excelUploadStep = document.getElementById("excelUploadStep");
+export const clearExcelBtn = document.getElementById("clearExcelBtn");
 export const playersSelectStep = document.getElementById("playersSelectStep");
 export const generatedTeamsStep = document.getElementById("generatedTeamsStep");
 export const amountOfTeamsStep = document.getElementById("amountOfTeamsStep");

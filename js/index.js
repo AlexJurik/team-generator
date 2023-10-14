@@ -2,7 +2,15 @@ import * as XLSX from "xlsx";
 import { Player } from "./player";
 import { generateTeams } from "./generator";
 import { generateCheckboxes } from "./ui-generator";
-import { amountOfTeamsInput, amountOfTeamsStep, excelFileInput, nextStepBtn, playersSelectStep } from "./components";
+import {
+  amountOfTeamsInput,
+  amountOfTeamsStep,
+  clearExcelBtn,
+  excelFileInput,
+  nextStepBtn,
+  playersSelectStep,
+  playersTableBody,
+} from "./components";
 
 let players = [];
 
@@ -40,9 +48,21 @@ function handleFileInput() {
   }
 }
 
-excelFileInput.addEventListener("change", handleFileInput);
+excelFileInput.addEventListener("change", () => {
+  handleFileInput();
+  resetPlayers();
+});
 nextStepBtn.addEventListener("click", () => new bootstrap.Collapse(amountOfTeamsStep).show());
 generateTeamsBtn.addEventListener("click", () => {
-  generateTeams(players, amountOfTeamsInput.value);
+  generateTeams(players, +amountOfTeamsInput.value);
   new bootstrap.Collapse(generatedTeamsStep).show();
 });
+clearExcelBtn.addEventListener("click", () => {
+  excelFileInput.value = "";
+  resetPlayers();
+});
+
+function resetPlayers() {
+  players = [];
+  playersTableBody.innerHTML = "";
+}
