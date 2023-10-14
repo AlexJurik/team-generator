@@ -59,6 +59,16 @@
                         <input accept=".xlsx" class="form-control" id="excelFileInput" type="file" />
                       </div>
                     </div>
+                    <div class="col-6 offset-md-3">
+                      <p class="fs-4">Example</p>
+                      <iframe
+                        src="https://onedrive.live.com/embed?resid=FB9B48A050419EA7%2123918&authkey=!AHvIm76IalSMafw&em=2&wdAllowInteractivity=False&ActiveCell='Sheet1'!A1&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"
+                        width="550"
+                        height="500"
+                        frameborder="0"
+                        scrolling="no"
+                      ></iframe>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -77,7 +87,18 @@
                 </h2>
                 <div id="playersSelectStep" class="accordion-collapse collapse" data-bs-parent="#steps">
                   <div class="accordion-body">
-                    <div id="playersCheckboxesContainer"></div>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col">#</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Category</th>
+                          <th scope="col">Goalkeeper</th>
+                        </tr>
+                      </thead>
+                      <tbody id="playersTableBody" class="table-group-divider"></tbody>
+                    </table>
                     <button class="btn btn-primary mt-3" id="nextStepBtn" type="button">Next</button>
                   </div>
                 </div>

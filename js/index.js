@@ -19,9 +19,8 @@ function handleFileInput() {
       const sheet = workbook.Sheets[workbook.SheetNames[0]];
 
       const jsonData = XLSX.utils.sheet_to_json(sheet, {
-        blankrows: false,
         defval: undefined,
-        header: ["identifier", "name", "coefficient", "attendance"],
+        header: ["identifier", "name", "coefficient", "goalkeeper"],
       });
 
       if (!jsonData.length) {
@@ -31,7 +30,7 @@ function handleFileInput() {
       jsonData.splice(0, 1);
 
       players = jsonData.map(
-        (row) => new Player(row["identifier"], row["name"], row["coefficient"], row["attendance"]),
+        (row) => new Player(row["identifier"], row["name"], row["coefficient"], row["goalkeeper"]),
       );
 
       generateCheckboxes(players);

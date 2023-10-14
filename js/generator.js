@@ -12,14 +12,35 @@ export function generateTeams(players, teamsCount) {
     }
   }
 
-  const sortedSelectedPlayers = sortPlayersAccordingToCoefficient(selectedPlayers);
+  const goalkeepers = selectedPlayers.filter((player) => !!player.goalkeeper);
+  const fieldPlayers = selectedPlayers.filter((player) => !player.goalkeeper);
+  const sortedGoalkeepers = sortPlayersAccordingToCoefficient(goalkeepers);
+  const sortedPlayers = sortPlayersAccordingToCoefficient(fieldPlayers);
   const teams = [];
-  const copyOfSortedSelectedPlayers = [...sortedSelectedPlayers];
+  const copyOfSortedGoalkeepers = [...sortedGoalkeepers];
+  const copyOfSortedPlayers = [...sortedPlayers];
 
+  let lastIndex = 0;
   // while there are players in sortedSelectedPlayers shift the first one and push it to the first team, then to the second team and so on
-  while (copyOfSortedSelectedPlayers.length) {
+  while (copyOfSortedPlayers.length) {
     for (let i = 0; i < teamsCount; i++) {
-      const candidate = copyOfSortedSelectedPlayers.shift();
+      const candidate = copyOfSortedPlayers.shift();
+      if (!candidate) {
+        break;
+      }
+
+      if (!teams[i]) {
+        teams[i] = [];
+      }
+      teams[i].push(candidate);
+
+      lastIndex = i;
+    }
+  }
+
+  while (copyOfSortedGoalkeepers.length) {
+    for (let i = lastIndex + 1; i < teamsCount; i++) {
+      const candidate = copyOfSortedGoalkeepers.shift();
       if (!candidate) {
         break;
       }
@@ -34,6 +55,7 @@ export function generateTeams(players, teamsCount) {
   if (teamResultContainerDiv.firstChild) {
     teamResultContainerDiv.removeChild(teamResult.firstChild);
   }
+
   const listGroup = document.createElement("ul");
   listGroup.classList.add("list-group");
 
