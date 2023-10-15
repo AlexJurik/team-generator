@@ -9,3 +9,5 @@ export const nextStepBtn = document.getElementById("nextStepBtn");
 export const generateTeamsBtn = document.getElementById("generateTeamsBtn");
 export const teamResultContainerDiv = document.getElementById("teamResultContainerDiv");
 export const playersTableBody = document.getElementById("playersTableBody");
+export const darkModeBtn = document.getElementById("darkModeBtn");
+export const lightModeBtn = document.getElementById("lightModeBtn");

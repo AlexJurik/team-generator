@@ -1,3 +1,5 @@
+import { darkModeBtn, lightModeBtn } from "./components";
+
 const getPreferredTheme = () => {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
@@ -11,3 +13,11 @@ const setTheme = (theme) => {
 };
 
 setTheme(getPreferredTheme());
+
+lightModeBtn.addEventListener("click", () => {
+  setTheme("light");
+});
+
+darkModeBtn.addEventListener("click", () => {
+  setTheme("dark");
+});
