@@ -100,6 +100,12 @@
                 <div class="accordion-body">
                   <div class="row">
                     <div class="col-md-12">
+                      <div class="alert alert-primary" role="alert">
+                        <i class="bi bi-info-circle-fill"></i
+                        ><span class="ms-2"
+                          >Fill in the Excel file based on the example, upload it and proceed to step #2</span
+                        >
+                      </div>
                       <div class="input-group mt-3 mb-3">
                         <label class="input-group-text" for="excelFileInput">Upload</label>
                         <input accept=".xlsx" class="form-control" id="excelFileInput" type="file" />
@@ -139,6 +145,12 @@
               </h2>
               <div id="playersSelectStep" class="accordion-collapse collapse" data-bs-parent="#steps">
                 <div class="accordion-body">
+                  <div class="alert alert-primary" role="alert">
+                    <i class="bi bi-info-circle-fill"></i
+                    ><span class="ms-2"
+                      >Check the players who come to the game and proceed to step #3 by clicking Next button</span
+                    >
+                  </div>
                   <table class="table table-striped">
                     <thead>
                       <tr>
@@ -172,6 +184,13 @@
               </h2>
               <div id="amountOfTeamsStep" class="accordion-collapse collapse" data-bs-parent="#steps">
                 <div class="accordion-body">
+                  <div class="alert alert-primary" role="alert">
+                    <i class="bi bi-info-circle-fill"></i
+                    ><span class="ms-2"
+                      >Type amount of teams you want to generate and proceed to the result by clicking Generate
+                      button</span
+                    >
+                  </div>
                   <div class="mb-3">
                     <label for="amountOfTeamsInput" class="form-label">Amount of teams</label>
                     <input type="number" class="form-control" id="amountOfTeamsInput" placeholder="3" value="3" />
@@ -197,6 +216,9 @@
               </h2>
               <div id="generatedTeamsStep" class="accordion-collapse collapse" data-bs-parent="#steps">
                 <div class="accordion-body">
+                  <div class="alert alert-primary" role="alert">
+                    <i class="bi bi-info-circle-fill"></i><span class="ms-2">Check the result</span>
+                  </div>
                   <div id="teamResultContainerDiv"></div>
                 </div>
               </div>
