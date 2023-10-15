@@ -51,6 +51,11 @@ function handleFileInput() {
 excelFileInput.addEventListener("change", () => {
   handleFileInput();
   resetPlayers();
+  if (excelFileInput.files.length) {
+    window.addEventListener("beforeunload", beforeUnloadHandler);
+  } else {
+    window.removeEventListener("beforeunload", beforeUnloadHandler);
+  }
 });
 nextStepBtn.addEventListener("click", () => new bootstrap.Collapse(amountOfTeamsStep).show());
 generateTeamsBtn.addEventListener("click", () => {
@@ -65,4 +70,11 @@ clearExcelBtn.addEventListener("click", () => {
 function resetPlayers() {
   players = [];
   playersTableBody.innerHTML = "";
+}
+
+function beforeUnloadHandler(event) {
+  event.preventDefault();
+  event.returnValue = "";
+  const confirmationMessage = "Are you sure you want to leave this page? You will lose your progress.";
+  return confirmationMessage;
 }
