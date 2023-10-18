@@ -40,7 +40,7 @@ const getDividedPlayersByCoefficient = (players) => {
   }
 
   const concatedArray = [];
-  for (const key of Object.keys(dividedPlayers)) {
+  for (const key of Object.keys(dividedPlayers).sort()) {
     concatedArray.push(shuffleArray(dividedPlayers[key]));
   }
 
