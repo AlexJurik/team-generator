@@ -1,13 +1,14 @@
 export const excelUploadStep = document.getElementById("excelUploadStep");
 export const clearExcelBtn = document.getElementById("clearExcelBtn");
 export const playersSelectStep = document.getElementById("playersSelectStep");
-export const generatedTeamsStep = document.getElementById("generatedTeamsStep");
 export const amountOfTeamsStep = document.getElementById("amountOfTeamsStep");
 export const excelFileInput = document.getElementById("excelFileInput");
 export const amountOfTeamsInput = document.getElementById("amountOfTeamsInput");
+export const selectAllPlayersCheckbox = document.getElementById("selectAllPlayersCheckbox");
 export const nextStepBtn = document.getElementById("nextStepBtn");
 export const generateTeamsBtn = document.getElementById("generateTeamsBtn");
 export const teamResultContainerDiv = document.getElementById("teamResultContainerDiv");
 export const playersTableBody = document.getElementById("playersTableBody");
 export const darkModeBtn = document.getElementById("darkModeBtn");
 export const lightModeBtn = document.getElementById("lightModeBtn");
+export const randomizeBtn = document.getElementById("randomizeBtn");

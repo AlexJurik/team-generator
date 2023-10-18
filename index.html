@@ -154,7 +154,7 @@
                   <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th scope="col"></th>
+                        <th scope="col"><input type="checkbox" id="selectAllPlayersCheckbox" /></th>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Category</th>
@@ -163,7 +163,10 @@
                     </thead>
                     <tbody id="playersTableBody" class="table-group-divider"></tbody>
                   </table>
-                  <button class="btn btn-primary mt-3" id="nextStepBtn" type="button">Next</button>
+
+                  <div class="d-grid">
+                    <button class="btn btn-primary mt-3" id="nextStepBtn" type="button">Next</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -194,35 +197,21 @@
                   <div class="mb-3">
                     <label for="amountOfTeamsInput" class="form-label">Amount of teams</label>
                     <input type="number" class="form-control" id="amountOfTeamsInput" placeholder="3" value="3" />
-                    <button class="btn btn-primary mt-3" id="generateTeamsBtn" type="button">Generate Teams</button>
+                    <div class="d-grid">
+                      <button class="btn btn-primary mt-3" id="generateTeamsBtn" type="submit">Generate Teams</button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- TEAMS -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#generatedTeamsStep"
-                  aria-expanded="false"
-                  aria-controls="generatedTeamsStep"
-                >
-                  #4 Check generated teams
-                </button>
-              </h2>
-              <div id="generatedTeamsStep" class="accordion-collapse collapse" data-bs-parent="#steps">
-                <div class="accordion-body">
-                  <div class="alert alert-primary" role="alert">
-                    <i class="bi bi-info-circle-fill"></i><span class="ms-2">Check the result</span>
-                  </div>
-                  <div id="teamResultContainerDiv"></div>
-                </div>
-              </div>
-            </div>
+          <div class="mt-3" id="teamResultContainerDiv"></div>
+
+          <div class="d-grid">
+            <button class="btn btn-primary mt-3" style="display: none" id="randomizeBtn" type="button">
+              Randomize <i class="bi bi-shuffle"></i>
+            </button>
           </div>
         </div>
       </div>

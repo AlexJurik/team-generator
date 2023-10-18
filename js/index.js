@@ -1,7 +1,7 @@
 import * as XLSX from "xlsx";
 import { Player } from "./player";
 import { generateTeams } from "./generator";
-import { generateCheckboxes } from "./ui-generator";
+import { appendTeamsResult, generateCheckboxes } from "./ui-generator";
 import {
   amountOfTeamsInput,
   amountOfTeamsStep,
@@ -9,12 +9,14 @@ import {
   excelFileInput,
   nextStepBtn,
   playersSelectStep,
-  playersTableBody,
+  randomizeBtn,
+  selectAllPlayersCheckbox,
 } from "./components";
+import { beforeUnloadHandler, getSelectedPlayers } from "./helpers";
 
 let players = [];
 
-function handleFileInput() {
+const handleFileInput = () => {
   const file = excelFileInput.files[0];
   new bootstrap.Collapse(playersSelectStep).show();
 
@@ -46,7 +48,7 @@ function handleFileInput() {
 
     reader.readAsArrayBuffer(file);
   }
-}
+};
 
 excelFileInput.addEventListener("change", () => {
   handleFileInput();
@@ -57,24 +59,38 @@ excelFileInput.addEventListener("change", () => {
     window.removeEventListener("beforeunload", beforeUnloadHandler);
   }
 });
+
 nextStepBtn.addEventListener("click", () => new bootstrap.Collapse(amountOfTeamsStep).show());
+
 generateTeamsBtn.addEventListener("click", () => {
-  generateTeams(players, +amountOfTeamsInput.value);
-  new bootstrap.Collapse(generatedTeamsStep).show();
+  runGenerator();
+  randomizeBtn.style.display = "block";
 });
+
 clearExcelBtn.addEventListener("click", () => {
   excelFileInput.value = "";
   resetPlayers();
 });
 
-function resetPlayers() {
+selectAllPlayersCheckbox.addEventListener("change", (event) => {
+  const checkboxes = document.querySelectorAll("input[type=checkbox]");
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = event.target.checked;
+  });
+});
+
+randomizeBtn.addEventListener("click", () => runGenerator());
+
+const runGenerator = () => {
+  console.time("generateTeams");
+  const teams = generateTeams(getSelectedPlayers(players), +amountOfTeamsInput.value);
+  appendTeamsResult(teams);
+  console.timeEnd("generateTeams");
+};
+
+const resetPlayers = () => {
   players = [];
   playersTableBody.innerHTML = "";
-}
-
-function beforeUnloadHandler(event) {
-  event.preventDefault();
-  event.returnValue = "";
-  const confirmationMessage = "Are you sure you want to leave this page? You will lose your progress.";
-  return confirmationMessage;
-}
+  teamResultContainerDiv.innerHTML = "";
+  randomizeBtn.style.display = "none";
+};
