@@ -8,22 +8,23 @@ export const generateTeams = (selectedPlayers, teamsCount) => {
   const concatenatedPlayers = [...dividedFieldPlayers, ...dividedGoalkeepers];
 
   const teams = [];
+  let lastIndex = 0;
 
-  // while there are players in sortedSelectedPlayers shift the first one and push it to the first team, then to the second team and so on
   while (concatenatedPlayers.length) {
     const playersByCategory = concatenatedPlayers.shift();
     while (playersByCategory.length) {
-      for (let i = 0; i < teamsCount; i++) {
-        const candidate = playersByCategory.shift();
-        if (!candidate) {
-          break;
-        }
-
-        if (!teams[i]) {
-          teams[i] = [];
-        }
-        teams[i].push(candidate);
+      const candidate = playersByCategory.shift();
+      if (!candidate) {
+        break;
       }
+
+      if (!teams[lastIndex]) {
+        teams[lastIndex] = [];
+      }
+
+      teams[lastIndex].push(candidate);
+
+      lastIndex = (lastIndex + 1) % teamsCount; // Update lastIndex to cycle through the teams
     }
   }
 
