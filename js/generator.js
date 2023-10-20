@@ -1,6 +1,10 @@
 import { shuffleArray } from "./helpers";
 
 export const generateTeams = (selectedPlayers, teamsCount) => {
+  if (selectedPlayers.length < teamsCount) {
+    throw new Error("Not enough players to form the desired number of teams");
+  }
+
   const goalkeepers = selectedPlayers.filter((player) => !!player.goalkeeper);
   const fieldPlayers = selectedPlayers.filter((player) => !player.goalkeeper);
   const dividedGoalkeepers = getDividedPlayersByCoefficient(goalkeepers);
