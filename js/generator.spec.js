@@ -25,7 +25,7 @@ describe("generateTeams", () => {
     const playersPerTeam = dummyPlayers.length / teamsCount;
     const teams = generateTeams(dummyPlayers, teamsCount);
     expect(teams.length).toBe(teamsCount);
-    expect(teams[0].length).toBe(1);
+    expect(teams[0].length).toBe(playersPerTeam);
     expect(teams[1].length).toBe(playersPerTeam);
   });
 
