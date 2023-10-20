@@ -1,3 +1,4 @@
 {
-  "presets": ["@babel/preset-env"]
+  "presets": ["@parcel/babel-preset-env"],
+  "plugins": ["@parcel/babel-plugin-transform-runtime"]
 }
