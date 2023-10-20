@@ -82,8 +82,12 @@ selectAllPlayersCheckbox.addEventListener("change", (event) => {
 randomizeBtn.addEventListener("click", () => runGenerator());
 
 const runGenerator = () => {
-  const teams = generateTeams(getSelectedPlayers(players), +amountOfTeamsInput.value);
-  appendTeamsResult(teams);
+  try {
+    const teams = generateTeams(getSelectedPlayers(players), +amountOfTeamsInput.value);
+    appendTeamsResult(teams);
+  } catch (error) {
+    alert(error.message);
+  }
 };
 
 const resetPlayers = () => {
