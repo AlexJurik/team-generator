@@ -2,7 +2,6 @@
   "name": "team-generator",
   "version": "1.0.0",
   "description": "Advanced team generator",
-  "main": "index.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
