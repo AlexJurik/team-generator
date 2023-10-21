@@ -11,6 +11,8 @@ import {
   playersSelectStep,
   randomizeBtn,
   selectAllPlayersCheckbox,
+  teamResultContainerDiv,
+  teamResultTitle,
 } from "./components";
 import { beforeUnloadHandler, getSelectedPlayers } from "./helpers";
 
@@ -65,6 +67,7 @@ nextStepBtn.addEventListener("click", () => new bootstrap.Collapse(amountOfTeams
 generateTeamsBtn.addEventListener("click", () => {
   runGenerator();
   randomizeBtn.style.display = "block";
+  teamResultTitle.style.display = "block";
 });
 
 clearExcelBtn.addEventListener("click", () => {
@@ -85,6 +88,7 @@ const runGenerator = () => {
   try {
     const teams = generateTeams(getSelectedPlayers(players), +amountOfTeamsInput.value);
     appendTeamsResult(teams);
+    teamResultContainerDiv.scrollIntoView({ behavior: "smooth" });
   } catch (error) {
     alert(error.message);
   }
@@ -94,5 +98,6 @@ const resetPlayers = () => {
   players = [];
   playersTableBody.innerHTML = "";
   teamResultContainerDiv.innerHTML = "";
+  teamResultTitle.style.display = "none";
   randomizeBtn.style.display = "none";
 };

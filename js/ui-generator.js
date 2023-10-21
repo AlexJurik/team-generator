@@ -73,25 +73,77 @@ const createCoefficientBadgeElement = (player) => {
 };
 
 export const appendTeamsResult = (teams) => {
-  if (teamResultContainerDiv.firstChild) {
-    teamResultContainerDiv.removeChild(teamResultContainerDiv.firstChild);
-  }
-
-  const listGroup = document.createElement("ul");
-  listGroup.classList.add("list-group");
+  // Reset teams result container
+  teamResultContainerDiv.innerHTML = "";
 
   const copyOfTeamColors = [...teamColorClasses];
 
+  let row = document.createElement("div");
+  row.classList.add("row", "mt-3");
+
+  let teamIndex = 0;
+
   for (const team of teams) {
     const teamColor = copyOfTeamColors.shift();
-    for (const player of team) {
-      const listItem = document.createElement("li");
-      listItem.classList.add("list-group-item");
-      listItem.classList.add(teamColor);
-      listItem.innerText = player.name;
-      listGroup.appendChild(listItem);
+    const teamCard = generateTeamCard(team, teamColor, teamIndex);
+    row.appendChild(teamCard);
+    teamIndex++;
+
+    if (teamIndex % 3 === 0) {
+      teamResultContainerDiv.appendChild(row);
+      row = document.createElement("div");
+      row.classList.add("row", "mt-3");
     }
   }
 
-  teamResultContainerDiv.appendChild(listGroup);
+  if (teamIndex % 3 !== 0) {
+    teamResultContainerDiv.appendChild(row);
+  }
+};
+
+const generateTeamCard = (team, teamColor, teamIndex) => {
+  const col = document.createElement("div");
+  col.classList.add("col-4");
+
+  const teamCard = document.createElement("div");
+  teamCard.classList.add("card");
+
+  // Header
+  const teamCardHeader = document.createElement("div");
+  teamCardHeader.classList.add("card-header", teamColor);
+
+  const teamCardHeaderContainer = document.createElement("div");
+  teamCardHeaderContainer.classList.add("d-flex", "justify-content-between", "align-items-center");
+
+  const teamCardTitle = document.createElement("span");
+  teamCardTitle.innerText = `Team ${teamIndex + 1}`;
+
+  const teamCardBadge = document.createElement("span");
+  teamCardBadge.classList.add("badge", "bg-secondary", "rounded-pill");
+  teamCardBadge.innerText = getTeamTotalCoefficient(team);
+
+  teamCardHeaderContainer.appendChild(teamCardTitle);
+  teamCardHeaderContainer.appendChild(teamCardBadge);
+  teamCardHeader.appendChild(teamCardHeaderContainer);
+
+  // Body
+  const teamCardBody = document.createElement("ul");
+  teamCardBody.classList.add("list-group", "list-group-flush");
+
+  for (const player of team) {
+    const teamCardItem = document.createElement("li");
+    teamCardItem.classList.add("list-group-item");
+    teamCardItem.innerText = player.name;
+    teamCardBody.appendChild(teamCardItem);
+  }
+
+  teamCard.appendChild(teamCardHeader);
+  teamCard.appendChild(teamCardBody);
+  col.appendChild(teamCard);
+
+  return col;
+};
+
+const getTeamTotalCoefficient = (team) => {
+  return team.reduce((accumulator, player) => accumulator + player.coefficient, 0);
 };

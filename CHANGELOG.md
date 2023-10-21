@@ -5,11 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## [1.1.2] - 21.10.2023
 
-### Added
+### Changed
 
-- UI/UX improvements of teams table.
+- UI of teams result.
 
 ## [1.1.1] - 20.10.2023
 
@@ -17,4 +17,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Unit test for the main functionality (generator).
 - Changelog.
-

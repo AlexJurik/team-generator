@@ -84,140 +84,139 @@
 
     <main role="main" class="container">
       <div class="row">
-        <div class="col-12">
-          <div class="accordion" id="steps">
-            <!-- UPLOAD -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button
-                  class="accordion-button"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#excelUploadStep"
-                  aria-expanded="true"
-                  aria-controls="excelUploadStep"
-                >
-                  #1 Upload excel file
-                </button>
-              </h2>
-              <div id="excelUploadStep" class="accordion-collapse collapse show" data-bs-parent="#steps">
-                <div class="accordion-body">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="alert alert-primary" role="alert">
-                        <i class="bi bi-info-circle-fill"></i
-                        ><span class="ms-2"
-                          >Fill in the Excel file based on the example, upload it and proceed to step #2</span
-                        >
-                      </div>
-                      <div class="input-group mt-3 mb-3">
-                        <label class="input-group-text" for="excelFileInput">Upload</label>
-                        <input accept=".xlsx" class="form-control" id="excelFileInput" type="file" />
-                        <button class="btn btn-outline-danger" type="button" id="clearExcelBtn">Clear</button>
-                      </div>
+        <div class="accordion" id="steps">
+          <!-- UPLOAD -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#excelUploadStep"
+                aria-expanded="true"
+                aria-controls="excelUploadStep"
+              >
+                #1 Upload excel file
+              </button>
+            </h2>
+            <div id="excelUploadStep" class="accordion-collapse collapse show" data-bs-parent="#steps">
+              <div class="accordion-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="alert alert-primary" role="alert">
+                      <i class="bi bi-info-circle-fill"></i
+                      ><span class="ms-2"
+                        >Fill in the Excel file based on the example, upload it and proceed to step #2</span
+                      >
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12">
-                      <p class="fs-4">Example</p>
-                      <iframe
-                        src="https://onedrive.live.com/embed?resid=FB9B48A050419EA7%2123918&authkey=!AHvIm76IalSMafw&em=2&wdAllowInteractivity=False&ActiveCell='Sheet1'!A1&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"
-                        style="width: 100%; height: 500px"
-                        frameborder="0"
-                        scrolling="no"
-                        title="PlayersExcelSample"
-                      ></iframe>
+                    <div class="input-group mt-3 mb-3">
+                      <label class="input-group-text" for="excelFileInput">Upload</label>
+                      <input accept=".xlsx" class="form-control" id="excelFileInput" type="file" />
+                      <button class="btn btn-outline-danger" type="button" id="clearExcelBtn">Clear</button>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <!-- PLAYERS -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#playersSelectStep"
-                  aria-expanded="false"
-                  aria-controls="playersSelectStep"
-                >
-                  #2 Select team players
-                </button>
-              </h2>
-              <div id="playersSelectStep" class="accordion-collapse collapse" data-bs-parent="#steps">
-                <div class="accordion-body">
-                  <div class="alert alert-primary" role="alert">
-                    <i class="bi bi-info-circle-fill"></i
-                    ><span class="ms-2"
-                      >Check the players coming to play and proceed to step #3 by clicking Next button</span
-                    >
-                  </div>
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col"><input type="checkbox" id="selectAllPlayersCheckbox" /></th>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Goalkeeper</th>
-                      </tr>
-                    </thead>
-                    <tbody id="playersTableBody" class="table-group-divider"></tbody>
-                  </table>
-
-                  <div class="d-grid">
-                    <button class="btn btn-primary mt-3" id="nextStepBtn" type="button">Next</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- AMOUNT -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#amountOfTeamsStep"
-                  aria-expanded="false"
-                  aria-controls="amountOfTeamsStep"
-                >
-                  #3 Enter amount of teams
-                </button>
-              </h2>
-              <div id="amountOfTeamsStep" class="accordion-collapse collapse" data-bs-parent="#steps">
-                <div class="accordion-body">
-                  <div class="alert alert-primary" role="alert">
-                    <i class="bi bi-info-circle-fill"></i
-                    ><span class="ms-2"
-                      >Type amount of teams you want to generate and proceed to the result by clicking Generate
-                      button</span
-                    >
-                  </div>
-                  <div class="mb-3">
-                    <label for="amountOfTeamsInput" class="form-label">Amount of teams</label>
-                    <input type="number" class="form-control" id="amountOfTeamsInput" placeholder="3" value="3" />
-                    <div class="d-grid">
-                      <button class="btn btn-primary mt-3" id="generateTeamsBtn" type="submit">Generate Teams</button>
-                    </div>
+                <div class="row">
+                  <div class="col-12">
+                    <p class="fs-4">Example</p>
+                    <iframe
+                      src="https://onedrive.live.com/embed?resid=FB9B48A050419EA7%2123918&authkey=!AHvIm76IalSMafw&em=2&wdAllowInteractivity=False&ActiveCell='Sheet1'!A1&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"
+                      style="width: 100%; height: 500px"
+                      frameborder="0"
+                      scrolling="no"
+                      title="PlayersExcelSample"
+                    ></iframe>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="mt-3" id="teamResultContainerDiv"></div>
+          <!-- PLAYERS -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#playersSelectStep"
+                aria-expanded="false"
+                aria-controls="playersSelectStep"
+              >
+                #2 Select team players
+              </button>
+            </h2>
+            <div id="playersSelectStep" class="accordion-collapse collapse" data-bs-parent="#steps">
+              <div class="accordion-body">
+                <div class="alert alert-primary" role="alert">
+                  <i class="bi bi-info-circle-fill"></i
+                  ><span class="ms-2"
+                    >Check the players coming to play and proceed to step #3 by clicking Next button</span
+                  >
+                </div>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col"><input type="checkbox" id="selectAllPlayersCheckbox" /></th>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Goalkeeper</th>
+                    </tr>
+                  </thead>
+                  <tbody id="playersTableBody" class="table-group-divider"></tbody>
+                </table>
 
-          <div class="d-grid">
-            <button class="btn btn-primary mt-3" style="display: none" id="randomizeBtn" type="button">
-              Randomize <i class="bi bi-shuffle"></i>
-            </button>
+                <div class="d-grid">
+                  <button class="btn btn-primary mt-3" id="nextStepBtn" type="button">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AMOUNT -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#amountOfTeamsStep"
+                aria-expanded="false"
+                aria-controls="amountOfTeamsStep"
+              >
+                #3 Enter amount of teams
+              </button>
+            </h2>
+            <div id="amountOfTeamsStep" class="accordion-collapse collapse" data-bs-parent="#steps">
+              <div class="accordion-body">
+                <div class="alert alert-primary" role="alert">
+                  <i class="bi bi-info-circle-fill"></i
+                  ><span class="ms-2"
+                    >Type amount of teams you want to generate and proceed to the result by clicking Generate
+                    button</span
+                  >
+                </div>
+                <div class="mb-3">
+                  <label for="amountOfTeamsInput" class="form-label">Amount of teams</label>
+                  <input type="number" class="form-control" id="amountOfTeamsInput" placeholder="3" value="3" />
+                  <div class="d-grid">
+                    <button class="btn btn-primary mt-3" id="generateTeamsBtn" type="submit">Generate Teams</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+
+      <h2 id="teamResultTitle" style="display: none" class="mt-5">Result</h2>
+      <div id="teamResultContainerDiv"></div>
+
+      <div class="d-grid">
+        <button class="btn btn-primary mt-3" style="display: none" id="randomizeBtn" type="button">
+          Randomize <i class="bi bi-shuffle"></i>
+        </button>
       </div>
     </main>
 
@@ -226,7 +225,7 @@
         <span class="navbar-text"
           >©2023 <a target="_blank" href="https://bento.me/alex-jurik">Alexander Jurik</a></span
         >
-        <span class="navbar-text">Version: 1.1.1</span>
+        <span class="navbar-text">Version: 1.1.2</span>
         <span class="navbar-text"><a href="mailto:aleks.jurik@gmail.com">Contact</a></span>
       </div>
     </footer>
