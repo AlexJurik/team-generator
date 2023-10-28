@@ -1,5 +1,6 @@
 import { playersTableBody } from "./components";
 import { teamColorClasses } from "./constants";
+import { getTeamTotalCoefficient } from "./helpers";
 
 export const generateCheckboxes = (players) => {
   for (const player of players) {
@@ -133,7 +134,7 @@ const generateTeamCard = (team, teamColor, teamIndex) => {
   for (const player of team) {
     const teamCardItem = document.createElement("li");
     teamCardItem.classList.add("list-group-item");
-    teamCardItem.innerText = player.name;
+    teamCardItem.innerText = `${player.name} (${player.coefficient})`;
     teamCardBody.appendChild(teamCardItem);
   }
 
@@ -142,8 +143,4 @@ const generateTeamCard = (team, teamColor, teamIndex) => {
   col.appendChild(teamCard);
 
   return col;
-};
-
-const getTeamTotalCoefficient = (team) => {
-  return team.reduce((accumulator, player) => accumulator + player.coefficient, 0);
 };

@@ -35,3 +35,7 @@ export const shuffleArray = (arr) => {
 
   return copy;
 };
+
+export const getTeamTotalCoefficient = (team) => {
+  return team.reduce((accumulator, player) => accumulator + player.coefficient, 0);
+};

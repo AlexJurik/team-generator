@@ -11,7 +11,7 @@ export const generateTeams = (selectedPlayers, teamsCount) => {
   const dividedFieldPlayers = getDividedPlayersByCoefficient(fieldPlayers);
   const concatenatedPlayers = [...dividedFieldPlayers, ...dividedGoalkeepers];
 
-  const teams = [];
+  const teams = Array.from({ length: teamsCount }, () => []);
   let lastIndex = 0;
 
   while (concatenatedPlayers.length) {
@@ -22,12 +22,7 @@ export const generateTeams = (selectedPlayers, teamsCount) => {
         break;
       }
 
-      if (!teams[lastIndex]) {
-        teams[lastIndex] = [];
-      }
-
       teams[lastIndex].push(candidate);
-
       lastIndex = (lastIndex + 1) % teamsCount; // Update lastIndex to cycle through the teams
     }
   }
