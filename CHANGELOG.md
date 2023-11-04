@@ -7,10 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+
+- Improve generator algorithm so the teams are more balanced.
+- Improve UI/UX.
+
+## [2.0.0] - 11.04.2023
+
 ### Added
 
-- Manual entry of the players with their categories as the main way to add players with possibility to import Excel file.
-- Saving the players and their categories in the local storage.
+- Manual entry of the players as the main way to add players with possibility to import Excel file.
+- Saving the players in the local storage, so they are not lost when page refreshes.
+- Possibility to remove players from the list.
+
+### Changed
+
+- Removed identifier column from the result table.
+- Sample is hidden by default with possibility to toggle it.
+- First and second step are merged into one step.
+- Code refactoring and improvements.
 
 ## [1.1.3] - 28.10.2023
 

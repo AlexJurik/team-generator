@@ -1,4 +1,5 @@
-import { darkModeBtn, lightModeBtn } from "./components";
+const darkModeBtn = document.getElementById("darkModeBtn");
+const lightModeBtn = document.getElementById("lightModeBtn");
 
 const getPreferredTheme = () => {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";

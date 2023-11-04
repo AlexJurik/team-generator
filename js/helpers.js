@@ -1,15 +1,9 @@
-export const beforeUnloadHandler = (event) => {
-  event.preventDefault();
-  event.returnValue = "";
-  return "Are you sure you want to leave this page? You will lose your progress.";
-};
-
 export const getSelectedPlayers = (players) => {
   const selectedPlayers = [];
 
   for (const player of players) {
     const checkbox = document.getElementById(player.identifier);
-    if (checkbox.checked) {
+    if (checkbox?.checked) {
       selectedPlayers.push(player);
     }
   }

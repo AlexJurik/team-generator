@@ -1,39 +1,53 @@
-import { playersTableBody } from "./components";
 import { teamColorClasses } from "./constants";
 import { getTeamTotalCoefficient } from "./helpers";
 
-export const generateCheckboxes = (players) => {
+export const generatePlayerRows = (players) => {
+  const playerRows = [];
   for (const player of players) {
     // Create cell elements
     const row = document.createElement("tr");
     const checkboxCell = document.createElement("td");
-    const identifierCell = document.createElement("th");
-    identifierCell.attributes.scope = "row";
     const nameCell = document.createElement("td");
     const coefficientCell = document.createElement("td");
     const goalKeeperCell = document.createElement("td");
+    const actionCell = document.createElement("td");
 
     // Create and append text nodes to cell elements
-    identifierCell.appendChild(document.createTextNode(player.identifier));
     nameCell.appendChild(document.createTextNode(player.name));
     if (player.goalkeeper) {
-      goalKeeperCell.appendChild(document.createTextNode(player.goalkeeper));
+      const goalkeeperBadge = createCoefficientBadgeElement(player.goalkeeper);
+      goalKeeperCell.appendChild(goalkeeperBadge);
     }
-    const coefficientBadge = createCoefficientBadgeElement(player);
+    const coefficientBadge = createCoefficientBadgeElement(player.coefficient);
     coefficientCell.appendChild(coefficientBadge);
     const playerCheckbox = createCheckboxElement(player);
     checkboxCell.appendChild(playerCheckbox);
+    const deleteBtn = createDeleteButtonElement(player);
+    actionCell.appendChild(deleteBtn);
 
     // Append cell elements to row
     row.appendChild(checkboxCell);
-    row.appendChild(identifierCell);
     row.appendChild(nameCell);
     row.appendChild(coefficientCell);
     row.appendChild(goalKeeperCell);
+    row.appendChild(actionCell);
+    row.dataset.identifier = player.identifier;
 
     // Append row to table body
-    playersTableBody.appendChild(row);
+    playerRows.push(row);
   }
+
+  return playerRows;
+};
+
+const createDeleteButtonElement = (player) => {
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("btn", "btn-danger", "delete-player-button");
+  const trashIcon = document.createElement("i");
+  trashIcon.classList.add("bi", "bi-trash");
+  deleteBtn.appendChild(trashIcon);
+
+  return deleteBtn;
 };
 
 const createCheckboxElement = (player) => {
@@ -43,17 +57,18 @@ const createCheckboxElement = (player) => {
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.id = player.identifier;
+  checkbox.checked = true;
   checkbox.classList.add("form-check-input");
   checkboxContainer.appendChild(checkbox);
 
   return checkboxContainer;
 };
 
-const createCoefficientBadgeElement = (player) => {
+const createCoefficientBadgeElement = (coefficient) => {
   const coefficientBadge = document.createElement("span");
   coefficientBadge.classList.add("badge", "rounded-pill");
 
-  switch (player.coefficient) {
+  switch (coefficient) {
     case 1:
       coefficientBadge.classList.add("bg-success");
       break;
@@ -68,12 +83,13 @@ const createCoefficientBadgeElement = (player) => {
       break;
   }
 
-  coefficientBadge.appendChild(document.createTextNode(player.coefficient));
+  coefficientBadge.appendChild(document.createTextNode(coefficient));
 
   return coefficientBadge;
 };
 
 export const appendTeamsResult = (teams) => {
+  const teamResultContainerDiv = document.getElementById("teamResultContainerDiv");
   // Reset teams result container
   teamResultContainerDiv.innerHTML = "";
 

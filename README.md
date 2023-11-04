@@ -1,6 +1,6 @@
 # Advanced Team Generator
 
-A JavaScript application that allows you to load an Excel file containing player information, create checkboxes for each player, and generate teams based on player coefficients.
+A JavaScript application that allows you to enter player manually or by importing Excel file and generate balanced teams based on player coefficients.
 
 ## Problem solved
 
@@ -8,13 +8,15 @@ As an amateur football player, I often play in tournaments with friends. We have
 
 ## Features
 
-- Load Excel File: Upload an Excel file with player data. You can download and edit provided sample file.
+- Add players manually by filling out inputs in the table.
 
-- Player Selection: For each player in the Excel file, checkboxes are generated. Select players who will play.
+- Import Excel File: Upload an Excel file with player data. You can download and edit provided sample file.
 
 - Generate Teams: Enter the number of teams to generate, and the application will create teams based on player coefficients.
 
 - You can randomize teams by clicking "Randomize" button.
+
+- Players are saved in the local storage, so they are not lost when page refreshes.
 
 ## Demo
 
@@ -22,23 +24,16 @@ You can try out the application live here: https://teambalancing.com
 
 ## Usage
 
-1. Load Excel File:
-   Click the "Upload" button and select an Excel file with player information.
+1. Enter team players and their coefficients manually or by importing Excel file:
+   Fill out inputs in the table or click the "Import" button and select an Excel file with player information.
    The application will extract the player data.
-   Player Selection:
 
-2. For each player in the Excel file, checkboxes are created.
-   Select the players you want to include in the teams.
-   Generate Teams:
-
-3. Enter the number of teams you want to create.
+2. Enter the number of teams you want to create.
    Click the "Generate Teams" button.
    Teams will be generated based on player coefficients.
 
 ![step1.png](assets/step1.png)
 ![step2.png](assets/step2.png)
-![step3.png](assets/step3.png)
-![step4.png](assets/step4.png)
 
 ## Technologies Used
 
