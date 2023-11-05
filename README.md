@@ -35,6 +35,8 @@ You can try out the application live here: https://teambalancing.com
 ![step1.png](assets/step1.png)
 ![step2.png](assets/step2.png)
 
+![gif1.gif](assets/gif1.gif)
+
 ## Technologies Used
 
 - HTML
