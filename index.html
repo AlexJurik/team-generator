@@ -56,6 +56,8 @@
       "
     />
     <meta name="author" content="Alexander Jurik" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#CFE2FF" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#031633" />
     <title>Team Balancing App</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -73,7 +75,12 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Team balancer</a>
         <div class="d-flex align-items-center">
-          <a class="nav-item me-2" target="_blank" href="https://github.com/AlexJurik/team-generator">
+          <a
+            class="nav-item me-2"
+            target="_blank"
+            href="https://github.com/AlexJurik/team-generator"
+            aria-label="Open project's Github directory"
+          >
             <i role="button" class="bi bi-github" style="color: #fff"></i>
           </a>
           <div class="nav-item dropdown">
@@ -89,10 +96,10 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="themeDropdown">
               <li>
-                <a class="dropdown-item" href="#" id="darkModeBtn">Dark mode</a>
+                <a class="dropdown-item" href="#" id="darkModeBtn" area-label="Set dark theme">Dark mode</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#" id="lightModeBtn">Light mode</a>
+                <a class="dropdown-item" href="#" id="lightModeBtn" area-label="Set light theme">Light mode</a>
               </li>
             </ul>
           </div>
@@ -113,6 +120,7 @@
                 data-bs-target="#playersSelectStep"
                 aria-expanded="true"
                 aria-controls="playersSelectStep"
+                aria-label="Toggle players select step"
               >
                 #1 Enter team players
               </button>
@@ -130,13 +138,13 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-end mb-3 gap-3">
-                  <button class="btn btn-outline-primary" id="importExcelTriggerBtn">
+                  <button class="btn btn-outline-primary" id="importExcelTriggerBtn" aria-label="Import Excel file">
                     Import <i class="bi bi-upload ms-2"></i>
                   </button>
-                  <button class="btn btn-outline-secondary" id="showExampleBtn">
+                  <button class="btn btn-outline-secondary" id="showExampleBtn" aria-label="Show Excel file sample">
                     <span id="showExampleBtnTitle">Show sample</span> <i class="bi bi-table ms-2"></i>
                   </button>
-                  <button class="btn btn-outline-danger" id="resetBtn">
+                  <button class="btn btn-outline-danger" id="resetBtn" aria-label="Reset players table">
                     Reset <i class="bi bi-arrow-repeat ms-2"></i>
                   </button>
                 </div>
@@ -213,6 +221,7 @@
                 data-bs-target="#amountOfTeamsStep"
                 aria-expanded="false"
                 aria-controls="amountOfTeamsStep"
+                aria-label="Toggle teams amount step"
               >
                 #2 Enter amount of teams
               </button>
@@ -230,7 +239,14 @@
                   <label for="amountOfTeamsInput" class="form-label">Amount of teams</label>
                   <input type="number" class="form-control" id="amountOfTeamsInput" placeholder="3" value="3" />
                   <div class="d-grid">
-                    <button class="btn btn-primary mt-3" id="generateTeamsBtn" type="submit">Generate Teams</button>
+                    <button
+                      class="btn btn-primary mt-3"
+                      id="generateTeamsBtn"
+                      type="submit"
+                      aria-label="Generate teams"
+                    >
+                      Generate Teams
+                    </button>
                   </div>
                 </div>
               </div>
@@ -241,7 +257,7 @@
 
       <div class="d-flex d-none mt-5" id="teamResultTitle">
         <h2>Result</h2>
-        <button class="btn btn-secondary ms-3" id="randomizeBtn" type="button">
+        <button class="btn btn-secondary ms-3" id="randomizeBtn" type="button" aria-label="Randomize selection">
           Randomize <i class="bi bi-shuffle"></i>
         </button>
       </div>
