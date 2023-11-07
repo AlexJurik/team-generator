@@ -43,6 +43,7 @@ export const generatePlayerRows = (players) => {
 const createDeleteButtonElement = (player) => {
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add("btn", "btn-danger", "delete-player-button");
+  deleteBtn.ariaLabel = "Delete row";
   const trashIcon = document.createElement("i");
   trashIcon.classList.add("bi", "bi-trash");
   deleteBtn.appendChild(trashIcon);

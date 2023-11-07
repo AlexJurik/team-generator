@@ -81,7 +81,7 @@
             href="https://github.com/AlexJurik/team-generator"
             aria-label="Open project's Github directory"
           >
-            <i role="button" class="bi bi-github" style="color: #fff"></i>
+            <i role="button" class="bi bi-github" style="color: #fff" aria-label="Open project's Github directory"></i>
           </a>
           <div class="nav-item dropdown">
             <a
@@ -120,7 +120,7 @@
                 data-bs-target="#playersSelectStep"
                 aria-expanded="true"
                 aria-controls="playersSelectStep"
-                aria-label="Toggle players select step"
+                aria-label="#1 Enter team players"
               >
                 #1 Enter team players
               </button>
@@ -138,13 +138,13 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-end mb-3 gap-3">
-                  <button class="btn btn-outline-primary" id="importExcelTriggerBtn" aria-label="Import Excel file">
+                  <button class="btn btn-outline-primary" id="importExcelTriggerBtn" aria-label="Import">
                     Import <i class="bi bi-upload ms-2"></i>
                   </button>
-                  <button class="btn btn-outline-secondary" id="showExampleBtn" aria-label="Show Excel file sample">
+                  <button class="btn btn-outline-secondary" id="showExampleBtn" aria-label="Show sample">
                     <span id="showExampleBtnTitle">Show sample</span> <i class="bi bi-table ms-2"></i>
                   </button>
-                  <button class="btn btn-outline-danger" id="resetBtn" aria-label="Reset players table">
+                  <button class="btn btn-outline-danger" id="resetBtn" aria-label="Reset">
                     Reset <i class="bi bi-arrow-repeat ms-2"></i>
                   </button>
                 </div>
@@ -176,7 +176,14 @@
                         <form id="addPlayerForm" class="needs-validation">
                           <td></td>
                           <td>
-                            <input name="name" required class="form-control" type="text" placeholder="Type name*" />
+                            <input
+                              name="name"
+                              required
+                              class="form-control"
+                              type="text"
+                              placeholder="Type name*"
+                              autocomplete="name"
+                            />
                           </td>
                           <td>
                             <input
@@ -205,7 +212,9 @@
                 </div>
 
                 <div class="d-grid">
-                  <button class="btn btn-primary mt-3" id="nextStepBtn" type="button">Next</button>
+                  <button class="btn btn-primary mt-3" id="nextStepBtn" type="button" aria-label="Next">
+                    Next
+                  </button>
                 </div>
               </div>
             </div>
@@ -221,7 +230,7 @@
                 data-bs-target="#amountOfTeamsStep"
                 aria-expanded="false"
                 aria-controls="amountOfTeamsStep"
-                aria-label="Toggle teams amount step"
+                aria-label="#2 Enter amount of teams"
               >
                 #2 Enter amount of teams
               </button>
@@ -257,7 +266,7 @@
 
       <div class="d-flex d-none mt-5" id="teamResultTitle">
         <h2>Result</h2>
-        <button class="btn btn-secondary ms-3" id="randomizeBtn" type="button" aria-label="Randomize selection">
+        <button class="btn btn-secondary ms-3" id="randomizeBtn" type="button" aria-label="Randomize">
           Randomize <i class="bi bi-shuffle"></i>
         </button>
       </div>
