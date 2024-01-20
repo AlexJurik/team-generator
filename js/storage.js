@@ -19,6 +19,7 @@ export const savePlayer = (player) => {
   const players = getPlayers();
   players.push(player);
   savePlayers(players);
+  return players.length;
 };
 
 export const deletePlayer = (identifier) => {
@@ -26,6 +27,7 @@ export const deletePlayer = (identifier) => {
   const index = players.findIndex((p) => p.identifier === identifier);
   players.splice(index, 1);
   savePlayers(players);
+  return players.length;
 };
 
 export const deletePlayers = () => {

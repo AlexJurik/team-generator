@@ -12,6 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improve generator algorithm so the teams are more balanced.
 - Improve UI/UX.
 
+## [2.0.1] - 20.01.2024
+
+### Added
+
+- Total number of players in the result.
+- Preselect category column to make adding players easier.
+
 ## [2.0.0] - 11.04.2023
 
 ### Added

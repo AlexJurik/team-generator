@@ -8,12 +8,14 @@ const showExampleBtn = document.getElementById("showExampleBtn");
 const showExampleBtnTitle = document.getElementById("showExampleBtnTitle");
 const excelSample = document.getElementById("excelSample");
 const playersTableBody = document.getElementById("playersTableBody");
+const totalPlayersSpan = document.getElementById("totalPlayers");
 const importExcelTriggerBtn = document.getElementById("importExcelTriggerBtn");
 const excelFileInput = document.getElementById("excelFileInput");
 const resetBtn = document.getElementById("resetBtn");
 const nextStepBtn = document.getElementById("nextStepBtn");
 const amountOfTeamsStep = document.getElementById("amountOfTeamsStep");
 const selectAllPlayersCheckbox = document.getElementById("selectAllPlayersCheckbox");
+const coefficientInput = document.getElementById("coefficientInput");
 
 showExampleBtn.addEventListener("click", () => {
   if (excelSample.style.display === "block") {
@@ -80,8 +82,9 @@ playersTableBody.addEventListener("click", (event) => {
   ) {
     const row = target.closest("tr");
     const identifier = row.dataset.identifier;
-    deletePlayer(identifier);
+    const amount = deletePlayer(identifier);
     playersTableBody.removeChild(row);
+    totalPlayersSpan.innerText = amount;
   }
 });
 
@@ -93,10 +96,12 @@ addPlayerForm.addEventListener("submit", (event) => {
   const coefficient = +formData.get("coefficient");
   const goalkeeper = +formData.get("goalkeeper");
   const player = new Player(crypto.randomUUID(), name, coefficient, goalkeeper);
-  savePlayer(player);
+  const amount = savePlayer(player);
   const rows = generatePlayerRows([player]);
   playersTableBody.append(...rows);
+  totalPlayersSpan.innerText = amount;
   addPlayerForm.reset();
+  coefficientInput.value = 1;
 });
 
 resetBtn.addEventListener("click", () => {
